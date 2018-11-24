@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class AuctionSystem extends AppCompatActivity {
 
@@ -28,6 +29,8 @@ public class AuctionSystem extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AuctionSystem.this, CreateAuction.class);
+                String user =  getIntent().getExtras().getString("user1");
+                intent.putExtra("user1",user);
                 startActivity(intent);
             }
         });

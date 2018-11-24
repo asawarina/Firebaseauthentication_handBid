@@ -45,7 +45,6 @@ public class CreateAuction extends AppCompatActivity {
 
 
 
-        mDatabase=FirebaseDatabase.getInstance().getReference();
 
         mFirebaseBtn =(Button) findViewById(R.id.done);
         mNameField =(EditText) findViewById(R.id.PrdctName);
@@ -54,21 +53,42 @@ public class CreateAuction extends AppCompatActivity {
         mStart =(EditText) findViewById(R.id.startDate);
         mHrs =(EditText) findViewById(R.id.startTime);
 
+
+
+
+
         mFirebaseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                final String user =  getIntent().getExtras().getString("user1");
+                try {
+                    mDatabase = FirebaseDatabase.getInstance().getReference().child(user);
+                }catch (Exception e)
+                {
+                    e.printStackTrace();
+                    System.out.print(e);
+                    Toast.makeText(
+                            CreateAuction.this,
+                            e.toString(),
+                            Toast.LENGTH_LONG).show();
+                }
+
                 String name = mNameField.getText().toString().trim();
                 String description = mDField.getText().toString().trim();
                 String MinPrice=mPField.toString().trim();
                 String startDate = mStart.getText().toString().trim();
                 String startTime = mHrs.getText().toString().trim();
 
+
+
                 HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name",name);
-                dataMap.put("Description",description);
-                dataMap.put("Min Price",MinPrice);
+                dataMap.put("Description",user);
+                dataMap.put("Min Price",user);
                 dataMap.put("StartDate",startDate);
                 dataMap.put("StartTime",startTime);
+                dataMap.put("user_name",user);
 
                 mDatabase.push().setValue(dataMap);
 

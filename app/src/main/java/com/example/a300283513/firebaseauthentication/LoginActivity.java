@@ -59,6 +59,11 @@ public class LoginActivity extends AppCompatActivity {
                                             //Log.v("error", task.getResult().toString());
                                         } else {
                                             Intent intent = new Intent(LoginActivity.this, AuctionSystem.class);
+                                            intent.putExtra("user1",email);
+                                            Toast.makeText(
+                                                    LoginActivity.this,
+                                                    "passwed "+email,
+                                                    Toast.LENGTH_LONG).show();
                                             startActivity(intent);
                                             finish();
 
@@ -82,6 +87,7 @@ public class LoginActivity extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override            public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                intent.putExtra("user",inputEmail.getText());
                 startActivity(intent);
             }
         });
