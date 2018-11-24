@@ -1,6 +1,5 @@
 package com.example.a300283513.firebaseauthentication;
 
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,14 +7,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.auction.asawari.AuctionObject;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.HashMap;
 
 public class CreateAuction extends AppCompatActivity {
 
@@ -53,7 +48,7 @@ public class CreateAuction extends AppCompatActivity {
         mStart =(EditText) findViewById(R.id.startDate);
         mHrs =(EditText) findViewById(R.id.startTime);
 
-
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("User");
 
 
 
@@ -61,9 +56,9 @@ public class CreateAuction extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                final String user =  getIntent().getExtras().getString("user1");
+                String user =  getIntent().getExtras().getString("user1");
                 try {
-                    mDatabase = FirebaseDatabase.getInstance().getReference().child(user);
+
                 }catch (Exception e)
                 {
                     e.printStackTrace();
@@ -76,21 +71,29 @@ public class CreateAuction extends AppCompatActivity {
 
                 String name = mNameField.getText().toString().trim();
                 String description = mDField.getText().toString().trim();
-                String MinPrice=mPField.toString().trim();
+                String minPrice=mPField.toString().trim();
                 String startDate = mStart.getText().toString().trim();
                 String startTime = mHrs.getText().toString().trim();
 
+                String userId = mDatabase.push().getKey();
+
+// creating user object
+
+                AuctionObject auctionObject = new AuctionObject(name,description,minPrice,startDate,startTime,user);
+               // pushing user to 'users' node using the userId
+                mDatabase.child(userId).setValue(auctionObject);
 
 
-                HashMap<String, String> dataMap = new HashMap<>();
+
+         /*       HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name",name);
                 dataMap.put("Description",user);
-                dataMap.put("Min Price",user);
+                dataMap.put("Min_Price",user);
                 dataMap.put("StartDate",startDate);
                 dataMap.put("StartTime",startTime);
                 dataMap.put("user_name",user);
 
-                mDatabase.push().setValue(dataMap);
+                mDatabase.push().setValue(dataMap);*/
 
                 mNameField.setText(null);
                 mDField.setText(null);
