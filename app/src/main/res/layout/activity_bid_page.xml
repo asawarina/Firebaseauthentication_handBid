@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:id="@+id/auctionName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Auction NAme"
+        android:textSize="30dp"/>
+
+    <TextView
+        android:id="@+id/auctionescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/auctionName"
+        android:layout_marginTop="30dp"
+        android:text="Descriptopm"
+        android:layout_marginLeft="30dp"
+        android:textSize="20dp"/>
+    <TextView
+        android:id="@+id/auctionecurrentbid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/auctionescription"
+        android:layout_marginTop="30dp"
+        android:text="Current Bid"
+        android:layout_marginLeft="30dp"
+        android:textSize="20dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/newbid"
+        android:layout_below="@+id/auctionecurrentbid"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:hint="new Bid"
+        android:inputType="text"/>
+
+
+    <Button
+        android:id="@+id/submit_bid"
+        android:layout_below="@+id/newbid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="26dp"
+        android:text="Submit Bid"
+        android:textSize="22dp" />
+
+    <!-- Link to Login Screen -->
+
+    <!-- Link to Forget Password -->
+
+
+</RelativeLayout>

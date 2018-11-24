@@ -22,7 +22,11 @@
         <activity android:name=".AuctionSystem" />
         <activity android:name=".CreateAuction" />
         <activity android:name=".MyAuction" />
-        <activity android:name=".AuctionWon"></activity>
+        <activity android:name=".AuctionWon" />
+        <activity
+            android:name=".BidPage"
+            android:label="@string/title_activity_bid_page"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

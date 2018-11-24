@@ -2,8 +2,10 @@ package com.auction.asawari;
 
 import com.google.firebase.database.IgnoreExtraProperties;
 
+import java.io.Serializable;
+
 @IgnoreExtraProperties
-public class AuctionObject {
+public class AuctionObject implements Serializable {
 
     private String name ;
     private String description;
@@ -12,7 +14,8 @@ public class AuctionObject {
     private String startTime;
     private String CreatedBy;
 
-    public AuctionObject() {
+
+    public AuctionObject()  {
     }
 
     public AuctionObject(String name, String description, String minPrice, String startDate, String startTime, String createdBy) {
@@ -22,6 +25,18 @@ public class AuctionObject {
         this.startDate = startDate;
         this.startTime = startTime;
         CreatedBy = createdBy;
+    }
+
+    @Override
+    public String toString() {
+        return "AuctionObject{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", MinPrice='" + MinPrice + '\'' +
+                ", startDate='" + startDate + '\'' +
+                ", startTime='" + startTime + '\'' +
+                ", CreatedBy='" + CreatedBy + '\'' +
+                '}';
     }
 
     public String getName() {
