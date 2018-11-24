@@ -19,7 +19,6 @@ public class CreateAuction extends AppCompatActivity {
     User user;
 
      FirebaseAuth auth;
-
      DatabaseReference mDatabase ;
 
 

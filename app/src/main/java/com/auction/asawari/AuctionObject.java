@@ -13,6 +13,9 @@ public class AuctionObject implements Serializable {
     private String startDate ;
     private String startTime;
     private String CreatedBy;
+    private String Lastbid="";
+    private String completed="0";
+
 
 
     public AuctionObject()  {
@@ -37,6 +40,22 @@ public class AuctionObject implements Serializable {
                 ", startTime='" + startTime + '\'' +
                 ", CreatedBy='" + CreatedBy + '\'' +
                 '}';
+    }
+
+    public String getLastbid() {
+        return Lastbid;
+    }
+
+    public void setLastbid(String lastbid) {
+        Lastbid = lastbid;
+    }
+
+    public String getCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(String completed) {
+        this.completed = completed;
     }
 
     public String getName() {

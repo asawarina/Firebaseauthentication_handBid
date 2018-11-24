@@ -39,6 +39,7 @@ public class MyAuction extends AppCompatActivity {
         dataList = (ListView) findViewById(R.id.user_list);
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,items);
         final HashMap<String, AuctionObject> datamap = new HashMap<>();
+        final String current_user = getIntent().getExtras().getString("user1");
 
         mDatabase = FirebaseDatabase.getInstance().getReference("User");
         mDatabase.addValueEventListener(new ValueEventListener() {
@@ -54,7 +55,7 @@ public class MyAuction extends AppCompatActivity {
 
                 if (auctions.size()!=0) {
                     for (AuctionObject temp: auctions)
-                    {
+                    {     //  temp.getStartDate()<currenttime
                         items.add(temp.getName()+"\n"+temp.getDescription());
                     }
                 }
@@ -77,7 +78,11 @@ public class MyAuction extends AppCompatActivity {
                 intent.putExtra("auction",auctions.get(position));
                 intent.putExtra("name",auctions.get(position).getName());
                 intent.putExtra("desc",auctions.get(position).getDescription());
+                intent.putExtra("createdby",auctions.get(position).getCreatedBy());
+                intent.putExtra("startdate",auctions.get(position).getStartDate());
+                intent.putExtra("starttime",auctions.get(position).getStartTime());
                 intent.putExtra("bid",auctions.get(position).getMinPrice());
+                intent.putExtra("user1",current_user);
                 for(String itr: datamap.keySet())
                 {
                         AuctionObject tempAuction=datamap.get(itr);
@@ -93,6 +98,7 @@ public class MyAuction extends AppCompatActivity {
 
 
                 startActivity(intent);
+                finish();
 
                 Toast.makeText(MyAuction.this,auctions.get(position).getStartDate(),Toast.LENGTH_LONG).show();
             }

@@ -38,7 +38,9 @@ public class AuctionSystem extends AppCompatActivity {
         btnauction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String user =  getIntent().getExtras().getString("user1");
                 Intent intent = new Intent(AuctionSystem.this, MyAuction.class);
+                intent.putExtra("user1",user);
                 startActivity(intent);
             }
         });
