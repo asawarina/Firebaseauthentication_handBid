@@ -18,7 +18,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".ForgetAndChangePasswordActivity"></activity>
+        <activity android:name=".ForgetAndChangePasswordActivity" />
+        <activity android:name=".AuctionSystem" />
+        <activity android:name=".CreateAuction" />
+        <activity android:name=".MyAuction" />
+        <activity android:name=".AuctionWon"></activity>
     </application>
 
 </manifest>

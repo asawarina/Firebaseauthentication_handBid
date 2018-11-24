@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AuctionSystem">
+
+   <TextView
+       android:id="@+id/title"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_centerHorizontal="true"
+       android:text="WELCOME TO AUCTION APP"
+       android:layout_marginTop="30dp"
+       android:textSize="25dp"
+       />
+
+    <Button
+        android:id="@+id/home"
+        android:layout_below="@id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text="HOME"
+        android:layout_marginTop="20dp"
+        android:visibility="invisible"/>
+
+    <Button
+        android:id="@+id/create"
+        android:layout_below="@id/home"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text="CREATE AUCTION"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/myauction"
+        android:layout_below="@id/create"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text="MY AUCTION"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/won"
+        android:layout_below="@id/myauction"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text="AUCTION WON"
+        android:layout_marginTop="20dp" />
+
+</RelativeLayout>

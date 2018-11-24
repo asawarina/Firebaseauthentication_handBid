@@ -8,92 +8,159 @@
     tools:context=".RegisterActivity">
 
     <TextView
-        android:id="@+id/title"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="FireBase Auth Register"
-        android:textStyle="bold"
-        android:textColor="#f90101"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:textAllCaps="true"
-        android:textSize="16sp"
-        android:padding="10dp"/>
+        android:id="@+id/newRgstn"
+        android:text="AUCTION SYSTEM- New User"
+        android:textSize="25dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/FirstName"
+        android:layout_below="@+id/newRgstn"
+        android:layout_marginLeft="20dp"
+        android:text="First Name:"
+        android:textSize="25dp"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/userFirst"
+        android:layout_below="@+id/FirstName"
+        android:hint="Enter your First Name"
+        android:inputType="text"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/LastName"
+        android:layout_below="@+id/userFirst"
+        android:layout_marginLeft="20dp"
+        android:text="Last Name:"
+        android:textSize="25dp"
+        android:layout_marginTop="10dp" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/userLast"
+        android:layout_below="@+id/LastName"
+        android:hint="Enter your Last Name"
+        android:inputType="text"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"/>
 
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/lay1"
-        android:layout_below="@+id/title"
-        android:layout_marginTop="25dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/userEmail"
+        android:layout_below="@+id/userLast"
+        android:layout_marginLeft="20dp"
+        android:text="E-mail:"
+        android:textSize="25dp"
+        android:layout_marginTop="10dp" />
 
 
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:maxLines="1"
-            android:singleLine="true"
-            android:textColor="@color/colorPrimary" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/email"
+        android:layout_below="@+id/userEmail"
+        android:hint="Enter your email "
+        android:inputType="textEmailAddress"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+
+        android:maxLines="1"
+        android:singleLine="true"/>
 
 
-    </android.support.design.widget.TextInputLayout>
 
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/lay2"
-        android:layout_below="@+id/lay1"
-        android:layout_marginTop="25dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
 
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:focusableInTouchMode="true"
-            android:hint="Password"
-            android:imeActionId="@+id/login"
-            android:imeOptions="actionUnspecified"
-            android:inputType="textPassword"
-            android:maxLines="1"
-            android:singleLine="true"
-            android:textColor="@color/colorPrimary"
-            tools:ignore="InvalidImeActionId" />
 
 
-    </android.support.design.widget.TextInputLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/userpassword"
+        android:layout_below="@+id/userEmail"
+        android:layout_marginLeft="20dp"
+        android:text="Password:"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/password"
+        android:layout_below="@+id/userpassword"
+        android:hint="Enter your Password"
+        android:inputType="textWebPassword"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:imeActionId="@+id/login"
+        android:imeOptions="actionUnspecified"
+
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textColor="@color/colorPrimary"
+        tools:ignore="InvalidImeActionId"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     <Button
-        android:id="@+id/sign_up_button"
-        style="?android:textAppearanceSmall"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/lay2"
-        android:layout_marginTop="50dp"
-        android:background="@color/colorPrimary"
-        android:text="Sign Up"
-        android:textColor="#ffffff"
-        android:textStyle="bold" />
+        android:id="@+id/register"
+        android:text="Register"
+        android:textSize="25dp"
+        android:layout_below="@+id/password"
+        android:layout_marginTop="25dp"
+        android:layout_alignParentRight="true"/>
+
+
+
 
 
     <!-- Link to Login Screen -->
 
 
     <Button
-        android:id="@+id/sign_in_button"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/sign_up_button"
+        android:id="@+id/cancel"
+        android:text="Cancel"
+        android:textSize="25dp"
+        android:layout_below="@+id/password"
         android:layout_marginTop="25dp"
-        android:background="@color/colorPrimary"
-        android:text="Sign In"
-        android:textColor="#ffffff" />
+        android:layout_alignParentRight="true"
+        android:layout_toLeftOf="@id/sign_up_button"
+        android:layout_marginRight="150dp"/>
 
 
 

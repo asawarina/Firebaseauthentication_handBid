@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class RegisterActivity extends AppCompatActivity {
     private EditText inputEmail, inputPassword;
     private FirebaseAuth auth;
-    private Button btnSignUp, btnLogin;
+    private Button btnregister, btncancel;
     private ProgressDialog PD;
 
     @Override
@@ -34,17 +34,17 @@ public class RegisterActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
-        if (auth.getCurrentUser() != null) {
+       /* if (auth.getCurrentUser() != null) {
             startActivity(new Intent(RegisterActivity.this, MainActivity.class));
             finish();
-        }
+        }*/
 
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
-        btnSignUp = (Button) findViewById(R.id.sign_up_button);
-        btnLogin = (Button) findViewById(R.id.sign_in_button);
+        btnregister = (Button) findViewById(R.id.register);
+        btncancel = (Button) findViewById(R.id.cancel);
 
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
+        btnregister.setOnClickListener(new View.OnClickListener() {
             @Override            public void onClick(View view) {
                 final String email = inputEmail.getText().toString();
                 final String password = inputPassword.getText().toString();
@@ -63,7 +63,7 @@ public class RegisterActivity extends AppCompatActivity {
                                                     Toast.LENGTH_LONG).show();
                                             Log.v("error", task.getResult().toString());
                                         } else {
-                                            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                             startActivity(intent);
                                             finish();
                                         }
@@ -82,7 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        btncancel.setOnClickListener(new View.OnClickListener() {
             @Override            public void onClick(View view) {
                 finish();
             }

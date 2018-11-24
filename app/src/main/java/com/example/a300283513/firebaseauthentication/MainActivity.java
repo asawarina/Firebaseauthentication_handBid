@@ -1,17 +1,20 @@
 package com.example.a300283513.firebaseauthentication;
 
+import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends ListActivity {
     Button btnSignOut;
     FirebaseAuth auth;
     FirebaseUser user;
@@ -22,13 +25,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        auth = FirebaseAuth.getInstance();
+        String[] attraction={"Home","Create Auction","My Auction","Auction Won","Logout"};
+        setListAdapter(new ArrayAdapter<String>(this,R.layout.activity_main,R.id.travel,attraction));
+
+      /*  auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
 
         PD = new ProgressDialog(this);
         PD.setMessage("Loading...");
         PD.setCancelable(true);
         PD.setCanceledOnTouchOutside(false);
+
+
 
         btnSignOut = (Button) findViewById(R.id.sign_out_button);
 
@@ -46,9 +54,13 @@ public class MainActivity extends AppCompatActivity {
                     }
                 };
             }
-        });
+        }); */
 
-        findViewById(R.id.change_password_button).setOnClickListener(new View.OnClickListener() {
+
+
+
+
+      /*  findViewById(R.id.change_password_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), ForgetAndChangePasswordActivity.class).putExtra("Mode", 1));
@@ -65,15 +77,51 @@ public class MainActivity extends AppCompatActivity {
             @Override            public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), ForgetAndChangePasswordActivity.class).putExtra("Mode", 3));
             }
-        });
+        });*/
+
+
+
+
     }
 
-    @Override    protected void onResume() {
+
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        //super.onListItemClick(l, v, position, id);
+
+
+
+            switch (position){
+                case 0:
+                    startActivity(new Intent(MainActivity.this,LoginActivity.class));
+
+                    break;
+                case 1:
+                    startActivity(new Intent(MainActivity.this,CreateAuction.class));
+                    break;
+
+                case 2:
+                    startActivity(new Intent(MainActivity.this,MyAuction.class));
+
+                    break;
+                case 3:
+                    startActivity(new Intent(MainActivity.this,AuctionWon.class));
+                    break;
+                case 4:
+                    startActivity(new Intent(MainActivity.this,LoginActivity.class));
+                    break;
+            }
+
+
+        }
+
+
+  /*  @Override    protected void onResume() {
         if (auth.getCurrentUser() == null) {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
             finish();
         }
         super.onResume();
 
-    }
+    }*/
 }
