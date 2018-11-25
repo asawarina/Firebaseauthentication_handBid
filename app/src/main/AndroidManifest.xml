@@ -23,6 +23,7 @@
         <activity android:name=".CreateAuction" />
         <activity android:name=".MyAuction" />
         <activity android:name=".AuctionWon" />
+        <activity android:name=".WonDetails" />
         <activity
             android:name=".BidPage"
             android:label="@string/title_activity_bid_page"

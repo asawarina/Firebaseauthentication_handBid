@@ -26,7 +26,7 @@ public class BidPage extends AppCompatActivity {
         setContentView(R.layout.activity_bid_page);
         TextView t1 = (TextView)findViewById(R.id.auctionName);
         TextView t2 = (TextView)findViewById(R.id.auctionescription);
-        TextView t3 = (TextView)findViewById(R.id.auctionecurrentbid);
+        final TextView t3 = (TextView)findViewById(R.id.auctionecurrentbid);
         final EditText e1= (EditText)findViewById(R.id.newbid);
         Button b1= (Button)findViewById(R.id.submit_bid);
         final String startdate = getIntent().getExtras().getString("startdate");
@@ -54,6 +54,7 @@ public class BidPage extends AppCompatActivity {
                 AuctionObject auctionObject = new AuctionObject(name,desc,bid,startdate,starttime,createdby);
                 auctionObject.setLastbid(current_user);
                 int currentbid=0;
+
                 int newbid  = Integer.parseInt(e1.getText().toString());
                 try {
                     currentbid= Integer.parseInt(bid);
@@ -61,13 +62,13 @@ public class BidPage extends AppCompatActivity {
                 }catch(Exception e)
                 {
                     currentbid=0;
-                    e.printStackTrace();
                 }
                 if(newbid>currentbid)
                 {
                     auctionObject.setMinPrice(String.valueOf(newbid));
                     mDatabase = FirebaseDatabase.getInstance().getReference().child("User");
                     mDatabase.child(key).setValue(auctionObject);
+                    t3.setText(String.valueOf(newbid));
                     Toast.makeText(BidPage.this,"Bid Submitted",Toast.LENGTH_LONG).show();
 
                     //insert

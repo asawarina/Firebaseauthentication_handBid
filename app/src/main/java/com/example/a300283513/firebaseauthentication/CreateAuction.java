@@ -12,11 +12,18 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class CreateAuction extends AppCompatActivity {
 
      Button mFirebaseBtn;
      EditText mNameField, mDField, mPField,mStart,mHrs;
-    User user;
+    Date date;
+    // User user;
 
      FirebaseAuth auth;
      DatabaseReference mDatabase ;
@@ -37,6 +44,8 @@ public class CreateAuction extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_auction);
 
+        //c.getTime();
+
 
 
 
@@ -56,7 +65,7 @@ public class CreateAuction extends AppCompatActivity {
             public void onClick(View v) {
 
                 String user =  getIntent().getExtras().getString("user1");
-                try {
+         /*       try {
 
                 }catch (Exception e)
                 {
@@ -66,7 +75,7 @@ public class CreateAuction extends AppCompatActivity {
                             CreateAuction.this,
                             e.toString(),
                             Toast.LENGTH_LONG).show();
-                }
+                }*/
 
                 String name = mNameField.getText().toString().trim();
                 String description = mDField.getText().toString().trim();
@@ -74,13 +83,32 @@ public class CreateAuction extends AppCompatActivity {
                 String startDate = mStart.getText().toString().trim();
                 String startTime = mHrs.getText().toString().trim();
 
-                String userId = mDatabase.push().getKey();
+                String tempdate = startDate+" "+startTime;
+                 try {
+                 String pattern = "yyyy-MM-dd HH:mm";
+                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+                // Date date1 = simpleDateFormat.parse("2018-11-25 13:19");
+                 Date date1 = simpleDateFormat.parse(tempdate);
+                String key = mDatabase.push().getKey();
 
-// creating user object
+                // creating user object
 
-                AuctionObject auctionObject = new AuctionObject(name,description,minPrice,startDate,startTime,user);
-               // pushing user to 'users' node using the userId
-                mDatabase.child(userId).setValue(auctionObject);
+                    AuctionObject auctionObject = new AuctionObject(name,description,minPrice,startDate,startTime,user);
+                    // pushing user to 'users' node using the userId
+                    mDatabase.child(key).setValue(auctionObject);
+
+
+                     mNameField.setText(null);
+                     mDField.setText(null);
+                     mPField.setText(null);
+                     mStart.setText(null);
+                     mHrs.setText(null);
+                }catch(ParseException e)
+                    {
+                    Toast.makeText(CreateAuction.this,"Please Enter Valid Date and time",Toast.LENGTH_LONG).show();
+                    }
+
+
 
 
 
@@ -94,11 +122,7 @@ public class CreateAuction extends AppCompatActivity {
 
                 mDatabase.push().setValue(dataMap);*/
 
-                mNameField.setText(null);
-                mDField.setText(null);
-                mPField.setText(null);
-                mStart.setText(null);
-                mHrs.setText(null);
+
             }
 
 

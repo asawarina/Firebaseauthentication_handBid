@@ -20,7 +20,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,7 +32,8 @@ public class MyAuction extends AppCompatActivity {
 
 
     private DatabaseReference mDatabase ;
-    private ListView dataList;private ArrayList<String> items = new ArrayList<>();
+    private ListView dataList;
+    private ArrayList<String> items = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +53,40 @@ public class MyAuction extends AppCompatActivity {
                 for (DataSnapshot temp1:dataSnapshot.getChildren())
                 {
                     AuctionObject zabuza = temp1.getValue(AuctionObject.class);
-                    datamap.put(temp1.getKey(),zabuza);
-                    auctions.add(zabuza);
+
+
+
+                     String startDateString = zabuza.getStartDate().toString()+" "+zabuza.getStartTime().toString();
+
+                    Calendar c = Calendar.getInstance();
+                    try {
+
+                        String pattern = "yyyy-MM-dd HH:mm";
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+                        // Date date1 = simpleDateFormat.parse("2018-11-25 13:19");
+                        Date date1 = simpleDateFormat.parse(startDateString);
+
+                        System.out.println("date1 "+ date1.toString());
+                        System.out.println("current date "+ c.getTime().toString());
+
+
+                        if(date1.before(c.getTime())&&zabuza.getLastbid().equalsIgnoreCase(current_user)) {
+                            System.out.println("continue");
+
+                        }
+                        else{
+                            System.out.println("finished");
+                            datamap.put(temp1.getKey(),zabuza);
+                            auctions.add(zabuza);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+
+
+
+
                 }
 
                 if (auctions.size()!=0) {

@@ -32,6 +32,7 @@ public class AuctionSystem extends AppCompatActivity {
                 String user =  getIntent().getExtras().getString("user1");
                 intent.putExtra("user1",user);
                 startActivity(intent);
+
             }
         });
 
@@ -42,14 +43,18 @@ public class AuctionSystem extends AppCompatActivity {
                 Intent intent = new Intent(AuctionSystem.this, MyAuction.class);
                 intent.putExtra("user1",user);
                 startActivity(intent);
+
             }
         });
 
         btnwon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String user =  getIntent().getExtras().getString("user1");
                 Intent intent = new Intent(AuctionSystem.this, AuctionWon.class);
+                intent.putExtra("user1",user);
                 startActivity(intent);
+
             }
         });
     }

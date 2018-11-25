@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                                             intent.putExtra("user1",email);
                                             Toast.makeText(
                                                     LoginActivity.this,
-                                                    "passwed "+email,
+                                                    "Hola " +email,
                                                     Toast.LENGTH_LONG).show();
                                             startActivity(intent);
                                             finish();
