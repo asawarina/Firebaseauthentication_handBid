@@ -45,6 +45,18 @@
         android:inputType="text"/>
 
     <EditText
+        android:id="@+id/minprice"
+        android:layout_below="@id/Description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Starting Price"
+        android:textSize="25dp"
+        android:textColorHint="#ffffff"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:layout_marginLeft="15dp"/>
+
+  <!--  <EditText
         android:id="@+id/MinPrice"
         android:layout_below="@+id/Description"
         android:layout_width="wrap_content"
@@ -55,14 +67,14 @@
         android:textStyle="bold"
         android:layout_marginLeft="10dp"
         android:textSize="25dp"
-      />
+      />-->
 
     <TextView
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Auction Starts At:"
-        android:layout_below="@+id/MinPrice"
+        android:layout_below="@+id/minprice"
         android:textSize="25dp"
         android:textColor="#ffffff"
         android:textStyle="bold"
@@ -104,7 +116,7 @@
         android:textSize="25dp"
         android:textColor="#ffffff"
         android:textStyle="bold"
-android:layout_marginTop="15dp"
+        android:layout_marginTop="15dp"
         android:layout_marginLeft="15dp"/>
 
     <Button

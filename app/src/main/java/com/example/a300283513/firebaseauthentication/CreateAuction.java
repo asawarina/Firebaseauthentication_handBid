@@ -22,7 +22,7 @@ public class CreateAuction extends AppCompatActivity {
 
      Button mFirebaseBtn;
      EditText mNameField, mDField, mPField,mStart,mHrs;
-    Date date;
+     Date date;
     // User user;
 
      FirebaseAuth auth;
@@ -52,9 +52,9 @@ public class CreateAuction extends AppCompatActivity {
         mFirebaseBtn =(Button) findViewById(R.id.done);
         mNameField =(EditText) findViewById(R.id.PrdctName);
         mDField =(EditText) findViewById(R.id.Description);
-        mPField =(EditText)  findViewById(R.id.MinPrice);
         mStart =(EditText) findViewById(R.id.startDate);
         mHrs =(EditText) findViewById(R.id.startTime);
+        final EditText minpriceedt=(EditText) findViewById(R.id.minprice);
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child("User");
 
@@ -77,9 +77,13 @@ public class CreateAuction extends AppCompatActivity {
                             Toast.LENGTH_LONG).show();
                 }*/
 
-                String name = mNameField.getText().toString().trim();
-                String description = mDField.getText().toString().trim();
-                String minPrice=mPField.toString().trim();
+                String name =" ";
+                name= mNameField.getText().toString().trim();
+                String description = " ";
+                description=mDField.getText().toString().trim();
+                //String minPrice=mPField.toString().trim();
+                String minPrice=" ";
+                minPrice=minpriceedt.getText().toString().trim();
                 String startDate = mStart.getText().toString().trim();
                 String startTime = mHrs.getText().toString().trim();
 
@@ -89,20 +93,44 @@ public class CreateAuction extends AppCompatActivity {
                  SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
                 // Date date1 = simpleDateFormat.parse("2018-11-25 13:19");
                  Date date1 = simpleDateFormat.parse(tempdate);
-                String key = mDatabase.push().getKey();
+                 Calendar c = Calendar.getInstance();
 
-                // creating user object
+                     if(date1.before(c.getTime())) {
+                         Toast.makeText(CreateAuction.this,"Please Enter time greter than current time",Toast.LENGTH_LONG).show();
 
-                    AuctionObject auctionObject = new AuctionObject(name,description,minPrice,startDate,startTime,user);
-                    // pushing user to 'users' node using the userId
-                    mDatabase.child(key).setValue(auctionObject);
+                     }
+                     else{
+                            if(name.equalsIgnoreCase("")||description.equalsIgnoreCase( ""))
+                            {
+                                Toast.makeText(CreateAuction.this,"Please Enter Valid Name or Description ",Toast.LENGTH_LONG).show();
+
+                            }
+                            else{
+                                try
+                                {
+                                    Integer.parseInt(minPrice);
+                                    String key = mDatabase.push().getKey();
+                                    // creating user object
+                                    AuctionObject auctionObject = new AuctionObject(name,description,minPrice,startDate,startTime,user);
+                                    // pushing user to 'users' node using the userId
+                                    mDatabase.child(key).setValue(auctionObject);
 
 
-                     mNameField.setText(null);
-                     mDField.setText(null);
-                     mPField.setText(null);
-                     mStart.setText(null);
-                     mHrs.setText(null);
+                                    mNameField.setText(null);
+                                    mDField.setText(null);
+                                    minpriceedt.setText(null);
+                                    // mPField.setText(null);
+                                    mStart.setText(null);
+                                    mHrs.setText(null);
+                                }catch(Exception e)
+                                {
+                                    Toast.makeText(CreateAuction.this,"Please Enter Valid Price ",Toast.LENGTH_LONG).show();
+                                }
+
+                            }
+
+                         }
+
                 }catch(ParseException e)
                     {
                     Toast.makeText(CreateAuction.this,"Please Enter Valid Date and time",Toast.LENGTH_LONG).show();
