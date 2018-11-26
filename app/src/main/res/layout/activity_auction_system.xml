@@ -3,10 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/auction1"
     android:layout_height="match_parent"
     tools:context=".AuctionSystem">
 
    <TextView
+       android:textColor="#ffffff"
+       android:textStyle="bold"
        android:id="@+id/title"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
@@ -17,10 +20,11 @@
        />
 
     <Button
+        android:textStyle="bold"
         android:id="@+id/home"
         android:layout_below="@id/title"
         android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="15dp"
         android:text="HOME"
@@ -28,33 +32,48 @@
         android:visibility="invisible"/>
 
     <Button
+        android:textStyle="bold"
         android:id="@+id/create"
         android:layout_below="@id/home"
         android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="15dp"
         android:text="CREATE AUCTION"
         android:layout_marginTop="20dp"/>
 
     <Button
+        android:textStyle="bold"
         android:id="@+id/myauction"
         android:layout_below="@id/create"
         android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="15dp"
-        android:text="MY AUCTION"
+        android:text="Ongoing Auctions"
         android:layout_marginTop="20dp"/>
 
     <Button
-        android:id="@+id/won"
-        android:layout_below="@id/myauction"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15dp"
-        android:text="AUCTION WON"
-        android:layout_marginTop="20dp" />
+    android:textStyle="bold"
+    android:id="@+id/won"
+    android:layout_below="@id/myauction"
+    android:layout_centerHorizontal="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="15dp"
+    android:text="AUCTION WON"
+    android:layout_marginTop="20dp" />
+
+ <Button
+     android:textStyle="bold"
+     android:id="@+id/owned"
+     android:layout_below="@id/won"
+     android:layout_centerHorizontal="true"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:textSize="15dp"
+     android:text="My Auctions"
+     android:layout_marginTop="20dp" />
+
 
 </RelativeLayout>

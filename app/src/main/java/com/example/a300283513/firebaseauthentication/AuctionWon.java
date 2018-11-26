@@ -95,7 +95,7 @@ public class AuctionWon extends AppCompatActivity {
                 if (auctions.size()!=0) {
                     for (AuctionObject temp: auctions)
                     {     //  temp.getStartDate()<currenttime
-                        items.add(temp.getName()+"\n"+temp.getDescription());
+                        items.add(temp.getName()+"\n"+temp.getDescription()+"\n"+ temp.getMinPrice()+ "\n"+temp.getLastbid());
                     }
                 }
                 dataList.setAdapter(arrayAdapter);

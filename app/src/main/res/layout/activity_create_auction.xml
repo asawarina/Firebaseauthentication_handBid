@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/auction1"
     tools:context=".CreateAuction">
 
     <TextView
@@ -12,6 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="Create Auction"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
         android:textSize="30dp"
         android:layout_marginTop="5dp"/>
 
@@ -21,7 +24,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Product Name"
-
+        android:textColorHint="#ffffff"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
         android:layout_marginLeft="10dp"
         android:textSize="25dp"
         android:inputType="text"/>
@@ -32,7 +37,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Product Description"
-
+        android:textColorHint="#ffffff"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
         android:layout_marginLeft="10dp"
         android:textSize="25dp"
         android:inputType="text"/>
@@ -43,7 +50,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Minimum Price"
-
+        android:textColorHint="#ffffff"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
         android:layout_marginLeft="10dp"
         android:textSize="25dp"
       />
@@ -55,7 +64,8 @@
         android:text="Auction Starts At:"
         android:layout_below="@+id/MinPrice"
         android:textSize="25dp"
-
+        android:textColor="#ffffff"
+        android:textStyle="bold"
         android:layout_marginLeft="15dp"/>
 
     <EditText
@@ -66,18 +76,24 @@
         android:hint="yyyy-mm-dd"
         android:textSize="30dp"
         android:inputType="date"
+        android:textColorHint="#ffffff"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
         android:layout_marginLeft="15dp"/>
 
     <EditText
         android:id="@+id/startTime"
-        android:layout_below="@id/text"
-        android:layout_toRightOf="@id/startDate"
+        android:layout_below="@id/startDate"
+        android:layout_toRightOf="@id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="hh:mm"
-        android:textSize="30dp"
+        android:textSize="25dp"
+        android:textColorHint="#ffffff"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
         android:inputType="time"
-        android:layout_marginLeft="15dp"/>
+        android:layout_marginLeft="5dp"/>
 
     <TextView
         android:id="@+id/text1"
@@ -86,10 +102,14 @@
         android:text="Auction Closes in (hrs):"
         android:layout_below="@+id/startDate"
         android:textSize="25dp"
-
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+android:layout_marginTop="15dp"
         android:layout_marginLeft="15dp"/>
 
     <Button
+
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/done"

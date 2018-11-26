@@ -13,7 +13,7 @@ public class AuctionObject implements Serializable {
     private String startDate ;
     private String startTime;
     private String CreatedBy;
-    private String Lastbid="";
+    private String Lastbid="placeholder";
     private String completed="0";
 
 

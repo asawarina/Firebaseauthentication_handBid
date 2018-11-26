@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/winauctionName"
         android:layout_marginTop="30dp"
-        android:text="Descriptopm"
+        android:text="Description"
         android:layout_marginLeft="30dp"
         android:textSize="20dp"/>
     <TextView

@@ -2,6 +2,7 @@
 <LinearLayout android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
+
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView
@@ -12,6 +13,9 @@
         android:layout_alignParentTop="true"
         android:layout_gravity="center"
         android:textAllCaps="true"
+        android:textSize="30dp"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
         android:clickable="false"
         android:text="Auctions"
         android:textAlignment="center"
@@ -19,10 +23,21 @@
 
     <ListView
         android:id="@+id/user_list"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:background="#ffffff"
 
+        android:cacheColorHint="@android:color/transparent"
+        android:listSelector="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:id="@+id/image"
+        android:background="@drawable/bid"/>
 
 
 

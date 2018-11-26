@@ -13,7 +13,7 @@ import android.widget.Toast;
 public class AuctionSystem extends AppCompatActivity {
 
 
-    Button btncreate,btnauction,btnwon;
+    Button btncreate,btnauction,btnwon,btnback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +24,7 @@ public class AuctionSystem extends AppCompatActivity {
         btncreate=(Button)findViewById(R.id.create);
         btnauction=(Button)findViewById(R.id.myauction);
         btnwon=(Button)findViewById(R.id.won);
+        btnback=(Button)findViewById(R.id.owned);
 
         btncreate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +58,20 @@ public class AuctionSystem extends AppCompatActivity {
 
             }
         });
+
+
+        btnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String user =  getIntent().getExtras().getString("user1");
+                Intent intent = new Intent(AuctionSystem.this, OwnedAuction.class);
+                intent.putExtra("user1",user);
+                startActivity(intent);
+
+            }
+        });
+
+
     }
 
 

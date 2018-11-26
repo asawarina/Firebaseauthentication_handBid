@@ -2,35 +2,36 @@
 <LinearLayout android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
+
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView
-        android:id="@+id/textViewAuctionWon"
+        android:id="@+id/owntextView2"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_gravity="center"
         android:textAllCaps="true"
+        android:textSize="30dp"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
         android:clickable="false"
-        android:text="Auctions WON"
+        android:text="Auctions"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <ListView
-        android:id="@+id/listwon"
+        android:id="@+id/ownuser_list"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:background="#ffffff"
 
+        android:cacheColorHint="@android:color/transparent"
+        android:listSelector="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp" />
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_gravity="center_horizontal|bottom"
-        android:id="@+id/image"
-
-
-        android:background="@drawable/won"/>
 
 
 

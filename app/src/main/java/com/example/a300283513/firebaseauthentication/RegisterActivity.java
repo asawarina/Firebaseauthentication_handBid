@@ -63,7 +63,7 @@ public class RegisterActivity extends AppCompatActivity {
                                                     Toast.LENGTH_LONG).show();
                                             Log.v("error", task.getResult().toString());
                                         } else {
-                                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                            Intent intent = new Intent(RegisterActivity.this, SplashActivity2.class);
                                             startActivity(intent);
                                             finish();
                                         }

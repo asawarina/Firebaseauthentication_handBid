@@ -28,7 +28,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MyAuction extends AppCompatActivity {
+public class OwnedAuction extends AppCompatActivity {
 
 
     private DatabaseReference mDatabase ;
@@ -38,9 +38,9 @@ public class MyAuction extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_auction);
+        setContentView(R.layout.owned_auctions);
         final ArrayList<AuctionObject> auctions = new ArrayList<AuctionObject>();
-        dataList = (ListView) findViewById(R.id.user_list);
+        dataList = (ListView) findViewById(R.id.ownuser_list);
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,items);
         final HashMap<String, AuctionObject> datamap = new HashMap<>();
         final String current_user = getIntent().getExtras().getString("user1");
@@ -56,7 +56,7 @@ public class MyAuction extends AppCompatActivity {
 
 
 
-                     String startDateString = zabuza.getStartDate().toString()+" "+zabuza.getStartTime().toString();
+                    String startDateString = zabuza.getStartDate().toString()+" "+zabuza.getStartTime().toString();
 
                     Calendar c = Calendar.getInstance();
                     try {
@@ -70,12 +70,12 @@ public class MyAuction extends AppCompatActivity {
                         System.out.println("current date "+ c.getTime().toString());
 
 
-                        if(date1.before(c.getTime())) {
+                        if(date1.before(c.getTime())&&zabuza.getLastbid().equalsIgnoreCase(current_user)) {
                             System.out.println("continue");
 
                         }
                         else{
-                            if(!zabuza.getCreatedBy().equalsIgnoreCase(current_user)){
+                            if(zabuza.getCreatedBy().equalsIgnoreCase(current_user)){
                                 System.out.println("finished");
                                 datamap.put(temp1.getKey(),zabuza);
                                 auctions.add(zabuza);
@@ -85,16 +85,13 @@ public class MyAuction extends AppCompatActivity {
                         e.printStackTrace();
                     }
 
-
-
-
-
                 }
 
                 if (auctions.size()!=0) {
                     for (AuctionObject temp: auctions)
                     {     //  temp.getStartDate()<currenttime
-                        items.add(temp.getName()+"\n"+temp.getDescription());
+                        items.add("Auction Name :- "+temp.getName()+"\n"+"Description :- "+temp.getDescription()+"\n"
+                        +"Won By :- "+temp.getLastbid()+"\n"+"Sold For :- "+temp.getMinPrice());
                     }
                 }
                 dataList.setAdapter(arrayAdapter);
@@ -106,13 +103,13 @@ public class MyAuction extends AppCompatActivity {
             }
         });
 
-        dataList.setClickable(true);
+       /* dataList.setClickable(true);
         dataList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String key="";
 
-                Intent intent = new Intent(MyAuction.this, BidPage.class);
+                *//*Intent intent = new Intent(MyAuction.this, BidPage.class);
                 intent.putExtra("auction",auctions.get(position));
                 intent.putExtra("name",auctions.get(position).getName());
                 intent.putExtra("desc",auctions.get(position).getDescription());
@@ -123,10 +120,10 @@ public class MyAuction extends AppCompatActivity {
                 intent.putExtra("user1",current_user);
                 for(String itr: datamap.keySet())
                 {
-                        AuctionObject tempAuction=datamap.get(itr);
-                     if( auctions.get(position).getName().equalsIgnoreCase(tempAuction.getName())
-                             && auctions.get(position).getDescription().equalsIgnoreCase(tempAuction.getDescription())
-                             &&auctions.get(position).getCreatedBy().equalsIgnoreCase(tempAuction.getCreatedBy()))
+                    AuctionObject tempAuction=datamap.get(itr);
+                    if( auctions.get(position).getName().equalsIgnoreCase(tempAuction.getName())
+                            && auctions.get(position).getDescription().equalsIgnoreCase(tempAuction.getDescription())
+                            &&auctions.get(position).getCreatedBy().equalsIgnoreCase(tempAuction.getCreatedBy()))
                     {
                         key=itr;
                     }
@@ -138,8 +135,8 @@ public class MyAuction extends AppCompatActivity {
                 startActivity(intent);
                 finish();
 
-                Toast.makeText(MyAuction.this,auctions.get(position).getStartDate(),Toast.LENGTH_LONG).show();
+                Toast.makeText(MyAuction.this,auctions.get(position).getStartDate(),Toast.LENGTH_LONG).show();*//*
             }
-        });
+        });*/
     }
 }
